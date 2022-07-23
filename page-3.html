@@ -1,1 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+    <style>
+.btn-cross {
+  display: inline-block;
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  text-decoration: none;
+  font-weight: bold;
+  color: #03A9F4;
+}
+.btn-cross:before, .btn-cross:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+  transition: .3s;
+}
+.btn-cross:before {
+  left: 7px;
+}
+.btn-cross:after {
+  right: 7px;
+}
+.btn-cross:hover:before {
+  top: 0px;
+  left:0;
+  height: 100%;
+}
+.btn-cross:hover:after {
+  top: 0px;
+  right: 0;
+  height: 100%;
+}
+
+        p{
+            font-size: 15px;}
+
+        h3{
+            font-size: 25px;
+        }
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  padding: 30px;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #959ca3;
+  border-radius: 0.5rem;
+}
+
+a.btn-svg {
+  font-weight: 700;
+  line-height: 54px;
+
+  width: 204px;
+  height: 54px;
+  padding: 0;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  background-color: transparent;
+}
+
+a.btn-svg svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+a.btn-svg svg rect {
+  -webkit-transition: all 400ms ease;
+  transition: all 400ms ease;
+
+  stroke: rgb(224, 219, 219);
+  stroke-width: 2;
+  stroke-dasharray: 200px, 16px;
+  stroke-dashoffset: 70px;
+}
+
+a.btn-svg:hover svg rect {
+  stroke-dashoffset: 284px;
+}
+
+a.btn-svg span {
+  color: #fff
+  ;
+}
+
+
+
+        h1{
+            font-family: "Nico Moji";
+            font-size: 40px;
+        }
+    
+            
+    </style>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お仕事依頼 はないち</title>
+</head>
+<body>
+    <hr size="30px" color="#008080">
+    <link href="https://fonts.googleapis.com/earlyaccess/nicomoji.css" rel="stylesheet">
+    <h1>
+    おしごといらい
+    </h1>
+<hr>
+
+    <h2>
+        お仕事についての依頼は、コチラから！
+    </h2>
+
+      
+    <hr>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form action="https://api.staticforms.xyz/submit" method="post">
+              <input type="hidden" name="accessKey" value="59901685-84de-45b9-8a75-215e32bb71b4">
+              <input type="hidden" name="subject" value="件名">
+              <input type="hidden" name="redirectTo" value="絶対パス">
+              <div class="form-group row">
+                <label for="inputName" class="col-sm-4 col-form-label">お名前</label>
+                <div class="col-sm-8">
+                  <input type="text" name="name" class="form-control" id="inputName">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail" class="col-sm-4 col-form-label">メールアドレス</label>
+                <div class="col-sm-8">
+                  <input type="text" name="email" class="form-control" id="inputEmail">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputTextarea" class="col-sm-4 col-form-label">メッセージ</label>
+                <div class="col-sm-8">
+                  <textarea name="message" rows="3" class="form-control" id="inputTextarea"></textarea>
+                </div>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary mb-2">送信</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      
+
+
+
+
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.js"></script>
+<script>
+$(function () {
+  $("#contactForm").validate({
+    rules: {
+      name: {
+        required: "*お名前を入力してください", // 入力必須チェック
+        rangelength: [1, 50], // 最小１文字、最大５０文字
+      },
+      email: {
+        required: "*メールアドレスを入力してください", // 入力必須チェック
+        email: "*正しいメールアドレス形式で入力してください", // メールアドレス形式チェック
+      },
+      message: {
+        required: "*メッセージを入力してください" // 入力必須チェック
+      }
+    }
+  });
+});
+</script>
+
+
+
+<hr>
+
+
+    <h2>
+        お仕事についてはコチラ！
+    
+    </h2>
+
+    <a href="page-2.html" class="btn btn-svg">
+        <svg>
+            <rect x="2" y="2" rx="0"
+            fill="nane" width="200" height="50">
+        
+        </rect>
+
+
+        </svg>
+        <span>お仕事一覧</span>
+    </a> 
+
+<hr>
+
+<h3>
+    お仕事の依頼について
+</h3>
+
+<p>コチラでは、個人の仕事依頼に加えて、私が営業している
+championの仕事も掲載しております。ですので、ご依頼の時は、
+注意してください。
+</p>
+
+<a href="index.html" class="btn-cross">
+    戻る
+  </a>
+  
+
+</body>
+</html>
